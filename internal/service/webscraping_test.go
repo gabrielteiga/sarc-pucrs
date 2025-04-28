@@ -33,6 +33,30 @@ func TestGetScheduleByURL(t *testing.T) {
 				Room:     "215",
 			},
 		},
+		{
+			Url: "https://sarc.pucrs.br/Default/Export.aspx?id=25b9fe09-df0b-47c0-8abf-d6a570871f6b&ano=2025&sem=1",
+			Expected: ExpectedResponse{
+				ID:       "25b9fe09-df0b-47c0-8abf-d6a570871f6b",
+				Subject:  "Verificação e Validação de Software",
+				Group:    "30",
+				Year:     2025,
+				Semester: 1,
+				Building: "32",
+				Room:     "414",
+			},
+		},
+		{
+			Url: "https://sarc.pucrs.br/Default/Export.aspx?id=e9448fa0-3507-41fe-be4c-f1d8b9a32d43&ano=2025&sem=1",
+			Expected: ExpectedResponse{
+				ID:       "e9448fa0-3507-41fe-be4c-f1d8b9a32d43",
+				Subject:  "Fundamentos de Redes de Computadores",
+				Group:    "30",
+				Year:     2025,
+				Semester: 1,
+				Building: "32",
+				Room:     "213",
+			},
+		},
 	}
 
 	for _, test := range tests {
