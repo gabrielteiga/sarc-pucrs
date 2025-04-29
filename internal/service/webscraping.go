@@ -35,13 +35,13 @@ func GetScheduleByURL(url string) map[string]*entities.Schedule {
 
 	c.OnHTML("span[id=lblTitulo]", func(e *colly.HTMLElement) {
 		if e.Response.StatusCode != 200 {
-			log.Fatalln("Erro ao acessar a página: ", e.Response.StatusCode)
+			log.Fatalln("Error during the url visit: ", e.Response.StatusCode)
 			return
 		}
 
 		code, subject, group, building, room, err := parseTitle(e.Text)
 		if err != nil {
-			println("Erro ao analisar o título:", err)
+			println("It was not possible to parse the subject title: ", err)
 			return
 		}
 
@@ -78,7 +78,7 @@ func GetScheduleByURL(url string) map[string]*entities.Schedule {
 
 	err := c.Visit(url)
 	if err != nil {
-		log.Fatalln("Erro ao visitar a URL:", err)
+		log.Fatal("Error during URL visit: ", err)
 	}
 
 	return scheduleMap
