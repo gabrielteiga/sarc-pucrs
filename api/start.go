@@ -9,7 +9,7 @@ import (
 func Start() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", controller.GetSchedule)
+	mux.HandleFunc("/schedule", controller.GetSchedule)
 
 	http.ListenAndServe(":8080", mux)
 }
